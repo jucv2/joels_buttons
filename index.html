@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Add this line -->
+  <title>Joel's kingdom come</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="assets/kitty.jpeg" type="image/jpeg">
+</head>
+<body>
+  <div class="title-container">
+    <h1 class="title">Joel's Buttons Zone</h1>
+  </div>
+
+  <div id="personalCount">Your HI's: 0</div>
+
+
+  <div class="button-container">
+    <button id="hiButton">
+        <img src="assets/hibutton.png" alt="Say Hi!" />
+    </button>
+    <p class="button-text">Click this stupid creature to say hi</p>
+  </div>
+
+<audio id="hydrateSound" src="assets/drink.wav"></audio>
+  <audio id="hiSound" src="assets/hisound.mp3"></audio>
+  <audio id="pauseSound" src="assets/pauseSound.wav"></audio>
+
+  <div class="hicounter-container">
+    <p id="hiCounterText">
+      <span class="total-hi-text">TOTAL HI's: </span>
+      <span class="count-text" id="countNumber">0</span>
+    </p>
+  </div>
+
+<div class="hydrate-container">
+  <button id="hydrateButton">
+    <img src="assets/bottle.png" alt="Hydrate Joel!" /> 
+  </button>
+  <p class="button-text">Hydrate Hydrate!!</p>
+  <div class="hydration-bar-container">
+    <div id="hydrationBar"></div>
+    <div class="piano-container">
+      <button class="piano-key" data-note="C">C</button>
+      <button class="piano-key" data-note="D">D</button>
+      <button class="piano-key" data-note="E">E</button>
+      <button class="piano-key" data-note="F">F</button>
+      <button class="piano-key" data-note="G">G</button>
+      <button class="piano-key" data-note="A">A</button>
+      <button class="piano-key" data-note="B">B</button>
+      <button class="piano-key special-key" data-note="1">1</button>
+    </div>
+  </div>
+  <div class="piano-container">
+  <audio id="noteC"><source src="assets/C.wav" type="audio/wav"></audio>
+<audio id="noteD"><source src="assets/D.wav" type="audio/wav"></audio>
+<audio id="noteE"><source src="assets/E.wav" type="audio/wav"></audio>
+<audio id="noteF"><source src="assets/F.wav" type="audio/wav"></audio>
+<audio id="noteG"><source src="assets/G.wav" type="audio/wav"></audio>
+<audio id="noteA"><source src="assets/A.wav" type="audio/wav"></audio>
+<audio id="noteB"><source src="assets/B.wav" type="audio/wav"></audio>
+<audio id="note1"><source src="assets/1.wav" type="audio/wav"></audio>
+
+  </div>
+</div>
+
+
+  <div class="turnoff-container">
+    <button id="turnOffButton">
+        <img src="assets/turnoff.png" alt="Turn Off!" />
+    </button>
+    <p class="button-text">Click this weird guy to turn off/on the music</p>
+  </div>
+  
+  <audio id="bgMusic" loop autoplay>
+    <source src="assets/Schnuffel-I love you so.mp3" type="audio/mpeg">
+    If you can read this, you're using a toaster instead of a browser.
+  </audio>
+  
+  <!-- Popup overlay (hidden by default) -->
+<div id="popupOverlay" style="display: none;">
+  <div id="popup">
+    <img src="assets/grass.png" alt="Go outside!" />
+    <p>You've hit the HI button 100 times... there's a whole world out there 🌞</p>
+    <button id="closePopupButton">okay...</button>
+  </div>
+
+  
+</div>
+
+  </div>
+  
+
+  </div>
+  
+  <script type="module" src="script.js"></script>
+
+</body>
+</html>

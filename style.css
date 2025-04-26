@@ -1,0 +1,378 @@
+@import url('https://fonts.googleapis.com/css2?family=Just+Another+Hand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+ 
+@keyframes wiggle {
+    0%, 100% {
+      transform: translateX(-50%) rotate(-3deg);
+    }
+    50% {
+      transform: translateX(-50%) rotate(3deg);
+    }
+}
+
+.title-container {
+    position: relative;
+    height: 100px;
+}
+
+.title {
+    position: absolute;
+    top: -20px; /* Adjust to move the title up (you can modify this value) */
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Press Start 2P', cursive;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    font-size: 4em;
+    color: #3D2F8E;
+    -webkit-text-stroke: 1px #40E0D0;
+    animation: wiggle 0.5s infinite;
+}
+
+body {
+    animation: changeBackground 5s steps(5, end) infinite; /* transition */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Comic Sans MS, sans-serif;
+    text-align: center;
+    padding: 2em;
+    color: rgb(219, 2, 2);
+  }
+  
+  @keyframes changeBackground {
+    0% {
+      background-image: url('assets/lol2.gif');
+    }
+    25% {
+      background-image: url('assets/coe2.gif');
+    }
+    50% {
+      background-image: url('assets/fan.gif');
+    }
+    75% {
+      background-image: url('assets/hiccup.gif');
+    }
+    100% {
+        background-image: url('assets/lol2.gif');
+    }
+  }
+
+ /* Container for the purple square */
+.button-container {
+    position: absolute;    /* Keeps the container fixed in place */
+    top: 300px;             /* Y position */ 
+    left: 475px;           /* X position */
+    width: 350px;          /* Increase width to fit both button and text */ 
+    height: 220px;         /* Height of the purple square */ 
+    background-image: url('assets/purpleone.jpg');  /* Background image for the purple square */
+    background-size: cover;  /* Scale the background to cover the entire container */
+    background-position: center;  /* Center the background image */
+    background-repeat: no-repeat;  /* Prevent the background image from repeating */
+    display: flex;            /* Use flexbox for positioning the button and text */
+    align-items: center;      /* Vertically center the content */
+  }
+  
+  /* Button inside the container */
+  #hiButton {
+    background: transparent;  /* Transparent background for the button */
+    border: none;             /* No border */
+    padding: 0;               /* No padding */
+    cursor: pointer;          /* Cursor pointer when hovering */
+    display: inline-block;     /* Align as an inline block */
+    margin-right: 10px;       /* Add some space between the button and text */
+  }
+  
+  /* Button image size */
+  #hiButton img {
+    width: 150px;             /* Adjust the button size */
+    height: auto;             /* Maintain aspect ratio */
+    display: block;           /* Remove any space below the image */
+  }
+  
+  .button-text {
+    color: white; 
+    font-family: 'Just Another Hand', cursive;
+    font-size: 3em;
+    -webkit-text-stroke: 1px rgb(45, 28, 46); /* 👈 Text stroke */
+    margin: 0;
+  }
+  
+  
+  #hiButton:hover img {
+    filter: hue-rotate(600deg); /* changes color of the image */
+  }
+  
+#hiButton:active img {
+  transform: scale(1.2); /* pop out */
+}
+
+.turnoff-container {
+    position: absolute;
+    top: 300px; /* adjust to move it below the first one */
+    left: 1000px;
+    width: 350px;
+    height: 220px;
+    background-image: url('assets/miku.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+  }
+  
+  #turnOffButton {
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  #turnOffButton img {
+    width: 150px;
+    height: auto;
+    display: block;
+  }
+  
+  #turnOffButton:hover img {
+    filter: hue-rotate(270deg); /* changes color of the image */
+  }
+  #turnOffButton:active img {
+    transform: scale(1.2); /* pop out */
+  }
+
+  .hicounter-container {
+    position: absolute;
+    top: 550px; /* adjust this to place it properly */
+    left: 100px; /* adjust based on where you want it */
+    width: 400px;
+    height: 420px;
+    background-image: url('assets/tamagotchi.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    flex-direction: column; /* STACKS the lines! */
+    align-items: center;
+    font-family: 'Press Start 2P', cursive;
+    color: #fff;
+    text-align: center;
+  }
+
+ /* Class to trigger the glow animation */
+.animate-glow .count-text {
+  animation: rainbowGlow 1.5s ease-in-out infinite; /* Apply the rainbow glowing animation */
+}
+
+@keyframes rainbowGlow {
+  0% {
+    text-shadow: 0 0 10px #ff4081, 0 0 20px #ff4081, 0 0 30px #ff4081, 0 0 40px #ff4081;
+  }
+  14% {
+    text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000;
+  }
+  28% {
+    text-shadow: 0 0 10px #ff7300, 0 0 20px #ff7300, 0 0 30px #ff7300, 0 0 40px #ff7300;
+  }
+  42% {
+    text-shadow: 0 0 10px #f7ff00, 0 0 20px #f7ff00, 0 0 30px #f7ff00, 0 0 40px #f7ff00;
+  }
+  57% {
+    text-shadow: 0 0 10px #00ff66, 0 0 20px #00ff66, 0 0 30px #00ff66, 0 0 40px #00ff66;
+  }
+  71% {
+    text-shadow: 0 0 10px #0099ff, 0 0 20px #0099ff, 0 0 30px #0099ff, 0 0 40px #0099ff;
+  }
+  85% {
+    text-shadow: 0 0 10px #9b00ff, 0 0 20px #9b00ff, 0 0 30px #9b00ff, 0 0 40px #9b00ff;
+  }
+  100% {
+    text-shadow: 0 0 10px #ff4081, 0 0 20px #ff4081, 0 0 30px #ff4081, 0 0 40px #ff4081;
+  }
+}
+
+.hicounter-container {
+  position: absolute;
+  top: 200px; /* adjust this to place it properly */
+  left: 100px; /* adjust based on where you want it */
+  width: 400px;
+  height: 420px;
+  background-image: url('assets/tamagotchi.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  flex-direction: column; /* STACKS the lines! */
+  align-items: center;
+  font-family: 'Press Start 2P', cursive;
+  color: #fff;
+  text-align: center;
+}
+
+#hiCounterText {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #c05fb8;
+  text-align: center;
+  -webkit-text-stroke: 1px rgb(68, 23, 110);
+  animation: rainbowGlow 1.5s ease-in-out infinite; /* Apply the rainbow glowing animation */
+  margin: 0;
+}
+
+#popupOverlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+#popupContent {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 400px;
+}
+
+#popupContent img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+#popupContent button {
+  padding: 8px 16px;
+  margin-top: 12px;
+  background: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#popupContent button:hover {
+  background: #45a049;
+}
+
+#resetButton {
+  position: relative;
+  top: 50px; /* Adjust the number to move it further down or up */
+}
+/* Container for hydration button */
+
+.hydrate-container {
+  display: flex;
+  flex-direction: column;  /* Make sure items stack vertically */
+  align-items: center;     /* Center items horizontally */
+  justify-content: center; /* Center items vertically */
+  margin-top: 20px;        /* Add margin to push everything down */
+  margin-bottom: 20px;     /* Optional: Add space below the container */
+  padding: 10px;           /* Optional: Add padding for spacing */
+}
+
+/* Style for the hydrate button */
+#hydrateButton {
+  background-color: transparent;  /* Transparent background */
+  border: none;  /* Remove border */
+  padding: 10px;  /* Add padding around the image */
+  cursor: pointer;  /* Change the cursor to a pointer on hover */
+  transition: transform 0.3s;  /* Smooth hover transition */
+  margin-top: 300px; /* Push the button down by 50px (adjust as needed) */
+}
+
+/* Hover effect for the button */
+#hydrateButton:hover {
+  transform: scale(0.9);  /* Slightly shrink the button on hover */
+}
+
+/* Style for the image inside the button */
+#hydrateButton img {
+  width: 50px;  /* Make the image smaller */
+  height: auto;  /* Maintain the aspect ratio */
+}
+
+/* Style for the hydration bar (if you have one) */
+.hydration-bar-container {
+  width: 100%;
+  height: 10px;
+  background-color: #ccc;
+  border-radius: 5px;
+  margin-top: 10px; /* Ensure there's space above the bar */
+}
+
+#hydrationBar {
+  height: 100%;
+  width: 0%;  /* Initially set the hydration bar to 0% */
+  background-color: #00bfff;  /* Set color for the hydration bar */
+  border-radius: 5px;
+}
+
+.piano-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 40px;
+  padding-bottom: 20px;
+}
+
+.piano-key {
+  width: 50px;
+  height: 120px;
+  background: white;
+  border: 2px solid black;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.piano-key:active {
+  background: #eee;
+}
+
+.piano-key {
+  background-color: white;
+  color: black;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 5px;
+  font-size: 18px;
+}
+
+.piano-key:hover {
+  background-color: #ddd;
+}
+
+/* Style the "1" key differently */
+.special-key {
+  background-color: rgb(0, 0, 0); /* Or any color you like */
+  color: white;
+}
+
+.special-key:hover {
+  background-color: rgb(31, 134, 117);
+}
+ 
+#personalCount {
+  font-size: 24px;
+  color: pink;
+  background-color: #ddd;
+  padding: 40x 20x;
+  text-align: center;
+  margin: 60px auto 20px auto;
+  width: fit-content;
+  box-shadow: 2px 2 px 5px rgb(0, 0, 0);
+}
