@@ -23,7 +23,7 @@
 
 .title {
     position: absolute;
-    top: -20px; 
+    top: 30px; 
     left: 50%;
     transform: translateX(-50%);
     font-family: 'Press Start 2P', cursive;
@@ -40,21 +40,14 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   height: 100vh; /* This ensures the body is at least 100% of the viewport height */
-  margin: 0; /* Reset margin */
+  margin: 5; /* Reset margin */
   font-family: Comic Sans MS, sans-serif;
   text-align: center;
   color: rgb(219, 2, 2);
   
 }
 
-html, body{
-  overflow-x: hidden;
-  margin: 0;
-  padding: 0;
-  height: 100;
- 
- }
- 
+
   @keyframes changeBackground {
     0% {
       background-image: url('assets/lol2.gif');
@@ -393,7 +386,7 @@ html, body{
   background-color: #000000;
   padding: 80x 20x;
   text-align: center;
-  margin: 64px auto 20px auto;
+  margin: 120px auto 20px auto;
   width: fit-content;
   box-shadow: 2px 2 px 5px rgb(0, 0, 0);
 
@@ -451,20 +444,18 @@ html, body{
 
 }
 
+
+
 @media (max-width: 1366px) {
-  .button-container {
-      width: 80%;
-      left: 10%;
-}
+ 
 html, body{
   background-size: cover;
   background-position: center;
-  height: 80vh;
+  height: 150vh;
   margin: 0;
   padding: 0;
 
 }
 
+
 }
-
-

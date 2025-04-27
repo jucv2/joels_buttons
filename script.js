@@ -31,7 +31,7 @@ let hiCounterText;
 let hiSound;
 let debounceTimeout;
 
-const DEBOUNCE_DELAY = 500;  // delay between clicks
+const DEBOUNCE_DELAY = 300;  // delay between clicks
 
 // Function to initialize user
 async function initUser(userId, personalCount) {
