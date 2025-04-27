@@ -386,7 +386,7 @@ body {
   background-color: #000000;
   padding: 80x 20x;
   text-align: center;
-  margin: 120px auto 20px auto;
+  margin: 100px auto 20px auto;
   width: fit-content;
   box-shadow: 2px 2 px 5px rgb(0, 0, 0);
 
@@ -456,6 +456,9 @@ html, body{
   padding: 0;
 
 }
-
+.title {
+  position: absolute;
+white-space: nowrap;
+}
 
 }
