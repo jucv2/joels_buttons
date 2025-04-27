@@ -9,6 +9,12 @@
       transform: translateX(-50%) rotate(3deg);
     }
 }
+ 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+ }
 
 .title-container {
     position: relative;
@@ -29,18 +35,26 @@
 }
 
 body {
-    animation: changeBackground 5s steps(5, end) infinite; 
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 100vh;
-    margin: 0;
-    font-family: Comic Sans MS, sans-serif;
-    text-align: center;
-    padding: 2em;
-    color: rgb(219, 2, 2);
-  }
+  animation: changeBackground 5s steps(5, end) infinite;
+  background-size: cover; /* Make sure it covers the whole screen */
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh; /* This ensures the body is at least 100% of the viewport height */
+  margin: 0; /* Reset margin */
+  font-family: Comic Sans MS, sans-serif;
+  text-align: center;
+  color: rgb(219, 2, 2);
   
+}
+
+html, body{
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  height: 100;
+ 
+ }
+ 
   @keyframes changeBackground {
     0% {
       background-image: url('assets/lol2.gif');
@@ -348,8 +362,9 @@ body {
   color: black;
   border: 1px solid #ccc;
   padding: 10px;
-  margin: 5px;
+  margin: 0px;
   font-size: 18px;
+  padding: 0;
 }
 
 .piano-key:hover {
@@ -381,4 +396,75 @@ body {
   margin: 64px auto 20px auto;
   width: fit-content;
   box-shadow: 2px 2 px 5px rgb(0, 0, 0);
+
+  
+  
 }
+/* Phone */
+
+@media (max-width: 600px) {
+  .button-container {
+    width: 80%; 
+    height: auto; 
+    left: 0%; 
+    top: 300px; 
+    position: relative;
+  }
+  .turnoff-container {
+    width: 60%; 
+    height: auto; 
+    left: 90%; 
+    top: 530px; 
+    margin-bottom: 50px;
+    position: relative;
+  }
+  #turnOffButton img {
+    width: 100px;
+
+    }
+
+    html, body{
+      background-size: cover;
+      height: 80vh;
+      margin: 0;
+      padding: 0;
+    }
+  #hiButton {
+    font-size: 14px;  
+    padding: 8px 16px;  
+    margin-right: 5px;  
+}
+
+#hiButton img {
+  width: 100px;  
+  
+
+  }
+  .hicounter-container {
+    top: 200px; /* Adjust position */
+    left: 10%; /* Center horizontally */
+    width: 80%; /* Reduce width on mobile */
+    min-height: 300px;
+    height: auto; /* Adjust height to fit content */
+    font-size: 12px; /* Reduce font size for smaller screens */
+}
+
+}
+
+@media (max-width: 1366px) {
+  .button-container {
+      width: 80%;
+      left: 10%;
+}
+html, body{
+  background-size: cover;
+  background-position: center;
+  height: 80vh;
+  margin: 0;
+  padding: 0;
+
+}
+
+}
+
+
