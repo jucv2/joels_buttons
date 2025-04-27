@@ -17,7 +17,7 @@
 
 .title {
     position: absolute;
-    top: -20px; /* Adjust to move the title up (you can modify this value) */
+    top: -20px; 
     left: 50%;
     transform: translateX(-50%);
     font-family: 'Press Start 2P', cursive;
@@ -29,7 +29,7 @@
 }
 
 body {
-    animation: changeBackground 5s steps(5, end) infinite; /* transition */
+    animation: changeBackground 5s steps(5, end) infinite; 
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -61,56 +61,56 @@ body {
 
  /* Container for the purple square */
 .button-container {
-    position: absolute;    /* Keeps the container fixed in place */
-    top: 300px;             /* Y position */ 
-    left: 475px;           /* X position */
-    width: 350px;          /* Increase width to fit both button and text */ 
-    height: 220px;         /* Height of the purple square */ 
-    background-image: url('assets/purpleone.jpg');  /* Background image for the purple square */
-    background-size: cover;  /* Scale the background to cover the entire container */
-    background-position: center;  /* Center the background image */
-    background-repeat: no-repeat;  /* Prevent the background image from repeating */
-    display: flex;            /* Use flexbox for positioning the button and text */
-    align-items: center;      /* Vertically center the content */
+    position: absolute;    
+    top: 300px;             
+    left: 475px;           
+    width: 350px;          
+    height: 220px;         
+    background-image: url('assets/purpleone.jpg');  
+    background-size: cover;  
+    background-position: center;  
+    background-repeat: no-repeat;  
+    display: flex;            
+    align-items: center;      
   }
   
   /* Button inside the container */
   #hiButton {
-    background: transparent;  /* Transparent background for the button */
-    border: none;             /* No border */
-    padding: 0;               /* No padding */
-    cursor: pointer;          /* Cursor pointer when hovering */
-    display: inline-block;     /* Align as an inline block */
-    margin-right: 10px;       /* Add some space between the button and text */
+    background: transparent;  
+    border: none;            
+    padding: 0;               
+    cursor: pointer;          
+    display: inline-block;     
+    margin-right: 10px;       
   }
   
   /* Button image size */
   #hiButton img {
-    width: 150px;             /* Adjust the button size */
-    height: auto;             /* Maintain aspect ratio */
-    display: block;           /* Remove any space below the image */
+    width: 150px;             
+    height: auto;             
+    display: block;           
   }
   
   .button-text {
     color: white; 
     font-family: 'Just Another Hand', cursive;
     font-size: 3em;
-    -webkit-text-stroke: 1px rgb(45, 28, 46); /* 👈 Text stroke */
+    -webkit-text-stroke: 1px rgb(45, 28, 46); 
     margin: 0;
   }
   
   
   #hiButton:hover img {
-    filter: hue-rotate(600deg); /* changes color of the image */
+    filter: hue-rotate(600deg); 
   }
   
 #hiButton:active img {
-  transform: scale(1.2); /* pop out */
+  transform: scale(1.2); 
 }
 
 .turnoff-container {
     position: absolute;
-    top: 300px; /* adjust to move it below the first one */
+    top: 300px; 
     left: 1000px;
     width: 350px;
     height: 220px;
@@ -138,16 +138,16 @@ body {
   }
   
   #turnOffButton:hover img {
-    filter: hue-rotate(270deg); /* changes color of the image */
+    filter: hue-rotate(270deg); 
   }
   #turnOffButton:active img {
-    transform: scale(1.2); /* pop out */
+    transform: scale(1.2); 
   }
 
   .hicounter-container {
     position: absolute;
-    top: 550px; /* adjust this to place it properly */
-    left: 100px; /* adjust based on where you want it */
+    top: 550px; 
+    left: 100px; 
     width: 400px;
     height: 420px;
     background-image: url('assets/tamagotchi.png');
@@ -156,16 +156,16 @@ body {
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
-    flex-direction: column; /* STACKS the lines! */
+    flex-direction: column; 
     align-items: center;
     font-family: 'Press Start 2P', cursive;
     color: #fff;
     text-align: center;
   }
 
- /* Class to trigger the glow animation */
+
 .animate-glow .count-text {
-  animation: rainbowGlow 1.5s ease-in-out infinite; /* Apply the rainbow glowing animation */
+  animation: rainbowGlow 1.5s ease-in-out infinite; 
 }
 
 @keyframes rainbowGlow {
@@ -197,8 +197,8 @@ body {
 
 .hicounter-container {
   position: absolute;
-  top: 200px; /* adjust this to place it properly */
-  left: 100px; /* adjust based on where you want it */
+  top: 200px; 
+  left: 100px; 
   width: 400px;
   height: 420px;
   background-image: url('assets/tamagotchi.png');
@@ -207,7 +207,7 @@ body {
   background-repeat: no-repeat;
   display: flex;
   justify-content: center;
-  flex-direction: column; /* STACKS the lines! */
+  flex-direction: column; 
   align-items: center;
   font-family: 'Press Start 2P', cursive;
   color: #fff;
@@ -221,7 +221,7 @@ body {
   color: #c05fb8;
   text-align: center;
   -webkit-text-stroke: 1px rgb(68, 23, 110);
-  animation: rainbowGlow 1.5s ease-in-out infinite; /* Apply the rainbow glowing animation */
+  animation: rainbowGlow 1.5s ease-in-out infinite; 
   margin: 0;
 }
 
@@ -269,33 +269,33 @@ body {
 
 #resetButton {
   position: relative;
-  top: 50px; /* Adjust the number to move it further down or up */
+  top: 50px; 
 }
-/* Container for hydration button */
+
 
 .hydrate-container {
   display: flex;
-  flex-direction: column;  /* Make sure items stack vertically */
-  align-items: center;     /* Center items horizontally */
-  justify-content: center; /* Center items vertically */
-  margin-top: 20px;        /* Add margin to push everything down */
-  margin-bottom: 20px;     /* Optional: Add space below the container */
-  padding: 10px;           /* Optional: Add padding for spacing */
+  flex-direction: column;  
+  align-items: center;     
+  justify-content: center; 
+  margin-top: 20px;        
+  margin-bottom: 20px;     
+  padding: 10px;           
 }
 
-/* Style for the hydrate button */
+
 #hydrateButton {
-  background-color: transparent;  /* Transparent background */
-  border: none;  /* Remove border */
-  padding: 10px;  /* Add padding around the image */
-  cursor: pointer;  /* Change the cursor to a pointer on hover */
-  transition: transform 0.3s;  /* Smooth hover transition */
-  margin-top: 300px; /* Push the button down by 50px (adjust as needed) */
+  background-color: transparent;  
+  border: none;  
+  padding: 10px;  
+  cursor: pointer;  
+  transition: transform 0.3s;  
+  margin-top: 300px; 
 }
 
-/* Hover effect for the button */
+
 #hydrateButton:hover {
-  transform: scale(0.9);  /* Slightly shrink the button on hover */
+  transform: scale(0.9);  
 }
 
 /* Style for the image inside the button */
@@ -304,18 +304,18 @@ body {
   height: auto;  /* Maintain the aspect ratio */
 }
 
-/* Style for the hydration bar (if you have one) */
+/* Style for the hydration bar  */
 .hydration-bar-container {
   width: 100%;
   height: 10px;
   background-color: #ccc;
   border-radius: 5px;
-  margin-top: 10px; /* Ensure there's space above the bar */
+  margin-top: 10px; /*  space above the bar */
 }
 
 #hydrationBar {
   height: 100%;
-  width: 0%;  /* Initially set the hydration bar to 0% */
+  width: 0%;  
   background-color: #00bfff;  /* Set color for the hydration bar */
   border-radius: 5px;
 }

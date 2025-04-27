@@ -24,11 +24,14 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// Make these global so you can use them everywhere
+// global
 let userId = localStorage.getItem("hiUserId");
 let personalCount;
 let hiCounterText;
 let hiSound;
+let debounceTimeout;
+
+const DEBOUNCE_DELAY = 500;  // delay between clicks
 
 // Function to initialize user
 async function initUser(userId, personalCount) {
@@ -75,9 +78,12 @@ async function ensureCounterExists() {
 // Function to load and show global counter
 async function loadCounter() {
     try {
-        const docSnap = await getDoc(doc(db, "counters", "hiCounter"));
+        const counterRef = doc(db, "counters", "hiCounter");
+        const docSnap = await getDoc(counterRef);
+
         if (docSnap.exists() && docSnap.data().count !== undefined) {
-            hiCounterText.innerHTML = `TOTAL<br>HI's:<br>${docSnap.data().count}`;
+            const globalCount = docSnap.data().count;
+            hiCounterText.innerHTML = `TOTAL<br>HI's:<br>${globalCount}`;
         } else {
             hiCounterText.innerHTML = `TOTAL<br>HI's:<br>???`;
         }
@@ -87,46 +93,62 @@ async function loadCounter() {
     }
 }
 
-// Function to increment global + personal counter
-async function incrementCounter() {
-    if (hiSound) {
-        hiSound.currentTime = 0;
-        hiSound.play().catch(e => {
-            console.warn("Sound play failed (maybe autoplay block?):", e);
-        });
-    }
-
-    let currentCountText = hiCounterText.innerText.match(/\d+/);
-    let optimisticCount = currentCountText ? parseInt(currentCountText[0], 10) + 1 : 1;
-    hiCounterText.innerHTML = `TOTAL<br>HI's:<br>${optimisticCount}`;
-
-    // Update personal hits locally
-    let personalHits = parseInt(localStorage.getItem("personalHits") || "0", 10);
-    personalHits++;
-    localStorage.setItem("personalHits", personalHits);
-
-    if (personalCount) {
-        personalCount.innerText = `Your HI's: ${personalHits}`;
-    }
-
-    checkPersonalMessages(personalHits);
-
-    // Update personal hits in Firestore
+// Function to increment global counter
+async function incrementGlobalCounter() {
     try {
-        const userRef = doc(db, "users", userId);
-        await setDoc(userRef, { hits: increment(1) }, { merge: true });
+        const counterRef = doc(db, "counters", "hiCounter");
+        await updateDoc(counterRef, {
+            count: increment(1) // Increment the global counter by 1
+        });
 
-        const userSnap = await getDoc(userRef);
-        const userHits = userSnap.data().hits || 0;
-
-        if (personalCount) {
-            personalCount.innerText = `Your HI's: ${userHits}`;
-        }
-        checkPersonalMessages(userHits);
+        // After incrementing
+        await loadCounter();
     } catch (err) {
-        console.error("Failed to save personal hits to Firestore:", err);
+        console.error("Error incrementing global counter in Firestore:", err);
     }
 }
+
+// Function to debounce the incrementing action for both counters
+const debouncedIncrement = async () => {
+    //  debounce timeout, clear it
+    if (debounceTimeout) {
+        clearTimeout(debounceTimeout);
+    }
+
+    // Set a new timeout to delay the incrementing action
+    debounceTimeout = setTimeout(async () => {
+        // Increment global counter
+        await incrementGlobalCounter();
+
+        // Increment personal counter locally
+        let personalHits = parseInt(localStorage.getItem("personalHits") || "0", 10);
+        personalHits++;
+        localStorage.setItem("personalHits", personalHits);
+
+        if (personalCount) {
+            personalCount.innerText = `Your HI's: ${personalHits}`;
+        }
+
+        // Check personal messages
+        checkPersonalMessages(personalHits);
+
+        // Update personal hits in Firestore
+        try {
+            const userRef = doc(db, "users", userId);
+            await setDoc(userRef, { hits: increment(1) }, { merge: true });
+
+            const userSnap = await getDoc(userRef);
+            const userHits = userSnap.data().hits || 0;
+
+            if (personalCount) {
+                personalCount.innerText = `Your HI's: ${userHits}`;
+            }
+            checkPersonalMessages(userHits);
+        } catch (err) {
+            console.error("Failed to save personal hits to Firestore:", err);
+        }
+    }, DEBOUNCE_DELAY); // 500ms delay
+};
 
 // DOM ready
 document.addEventListener('DOMContentLoaded', async () => {
@@ -141,10 +163,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     const closePopupButton = document.getElementById("closePopupButton");
     const popupOverlay = document.getElementById("popupOverlay");
     hiSound = document.getElementById("hiSound"); // Now global
-    const counterRef = doc(db, "counters", "hiCounter");
     const hydrateSound = document.getElementById("hydrateSound");
     const pauseSound = document.getElementById("pauseSound");
-
+    
 
     let hydrationLevel = 0;
     let joelDrowned = false;
@@ -173,7 +194,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (turnOffButton) {
         turnOffButton.addEventListener("click", () => {
             pauseSound.play();
-            
+
             if (bgMusic.paused) {
                 bgMusic.play();
                 alert("banger");
@@ -209,7 +230,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             hydrationBar.style.width = `${hydrationLevel}%`;
         });
     }
-    
 
     // Close popup
     if (closePopupButton) {
@@ -218,10 +238,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     }
 
-    // Hi button
+    // Hi button 
     if (hiButton) {
         hiButton.addEventListener("click", async () => {
-            await incrementCounter();
+            hiSound.play();
+            // Debounced 
+            await debouncedIncrement();
         });
     }
 
