@@ -369,10 +369,16 @@ body {
 #personalCount {
   font-size: 24px;
   color: pink;
-  background-color: #ddd;
-  padding: 40x 20x;
+ margin-top: -70px;
+}
+#checkMeOut {
+  font-size: 14px;
+  color: rgb(224, 0, 0);
+  font-family: 'Press Start 2P', cursive;
+  background-color: #000000;
+  padding: 80x 20x;
   text-align: center;
-  margin: 60px auto 20px auto;
+  margin: 64px auto 20px auto;
   width: fit-content;
   box-shadow: 2px 2 px 5px rgb(0, 0, 0);
 }
