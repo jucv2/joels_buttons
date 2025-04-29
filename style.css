@@ -305,10 +305,10 @@ body {
   transform: scale(0.9);  
 }
 
-/* Style for the image inside the button */
+
 #hydrateButton img {
-  width: 50px;  /* Make the image smaller */
-  height: auto;  /* Maintain the aspect ratio */
+  width: 50px; 
+  height: auto;  
 }
 
 /* Style for the hydration bar  */
@@ -364,9 +364,9 @@ body {
   background-color: #ddd;
 }
 
-/* Style the "1" key differently */
+
 .special-key {
-  background-color: rgb(0, 0, 0); /* Or any color you like */
+  background-color: rgb(0, 0, 0);
   color: white;
 }
 
